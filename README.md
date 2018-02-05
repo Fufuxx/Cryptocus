@@ -10,7 +10,7 @@ knex migrate:latest
 
 # Commands
 
-Build -> ng build
-CLI run -> ng serve
-Node run -> npm start
-Build prod -> ng build --prod
++Build -> ng build
++CLI run -> ng serve
++Node run -> npm start
++Build prod -> ng build --prod
