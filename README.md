@@ -4,11 +4,11 @@ Get started on building apps on top of NodeJs and Angular CLI
 
 More doc to follow - Boilerplate build up still in progress...
 
-# DB Migration Dummy Table
+###### DB Migration Dummy Table
 
 knex migrate:latest
 
-# Commands
+###### Commands
 
 + Build -> ng build
 + CLI run -> ng serve
