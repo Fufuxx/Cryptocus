@@ -27,12 +27,3 @@ module.exports = {
         });
     }
 }
-
-//Delete it
-    // record.destroy({}).then(function() {
-    //         console.log('Record Destroyed');
-    //     })
-    //     .catch(function(err){
-    //         console.log('Delete Error');
-    //         console.log(err);
-    //     });
