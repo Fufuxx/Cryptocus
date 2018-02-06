@@ -1,28 +1,23 @@
 const express = require('express');
+const request = require('request');
 const app = express();
 
-const Dummy = require('./models/dummy.js');
+// This gives me the ability to call req.body at any point in order to get the content of the body of any request
+app.use(function(req, res, next){
+    var data='';
+    req.setEncoding('utf8');
+    req.on('data', function(chunk) {
+       data += chunk;
+    });
 
-//Creating a Record
-Dummy.forge({
-        name: 'Dummy',
-        url: 'www.dummy.dummy'
-    }).save().then(function(record){
-        console.log('Record Created ');
-        console.log(record);
-        //Delete it
-        record.destroy({}).then(function() {
-                console.log('Record Destroyed');
-            })
-            .catch(function(err){
-                console.log('Delete Error');
-                console.log(err);
-            });
-            
-    }).catch(function (err) {
-        console.log('Error Occurred');
-        console.log(err);
-    }); 
+    req.on('end', function() {
+        req.body = data;
+        next();
+    });
+});
+
+//Handle Routes
+app.use(require('./routes/dummy.js'));
 
 //Getting static folder
 app.use(express.static(__dirname + '/dist'));
