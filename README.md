@@ -8,6 +8,9 @@ More doc to follow - Boilerplate build up still in progress...
 
 + Create Database locally - Create q-boiler database on Postico
 
++ Set Dependencies
+`npm install`
+
 + Build up the dist folder
 `ng build`
 
