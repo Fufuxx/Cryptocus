@@ -4,13 +4,20 @@ Get started on building apps on top of NodeJs and Angular CLI
 
 More doc to follow - Boilerplate build up still in progress...
 
-###### DB Migration Dummy Table
+#### Before you can run the app
 
++ Create Database locally - Create q-boiler database on Postico
+
++ Build up the dist folder
+ng build
+
++ run migration from terminal on app root directory
 knex migrate:latest
 
-###### Commands
++ Run node Server
+npm start
 
-+ Build -> ng build
-+ CLI run -> ng serve
-+ Node run -> npm start
-+ Build prod -> ng build --prod
+#### Add on
+
++ Build for production
+ng build --prod
