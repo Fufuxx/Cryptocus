@@ -9,15 +9,15 @@ More doc to follow - Boilerplate build up still in progress...
 + Create Database locally - Create q-boiler database on Postico
 
 + Build up the dist folder
-ng build
+`ng build`
 
 + run migration from terminal on app root directory
-knex migrate:latest
+`knex migrate:latest`
 
 + Run node Server
-npm start
+`npm start`
 
 #### Add on
 
 + Build for production
-ng build --prod
+`ng build --prod`
