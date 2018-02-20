@@ -2,5 +2,10 @@
 <div id="main">
   <input id="bigInput" type="text" [(ngModel)]="query" />
   <button id="bigButton" (click)="getTweets()">Get Tweets</button>
+  <hr/>
+  <h1>Results :</h1>
+  <ul>
+    <li *ngFor="let t of tweets">{{ t.text }}</li>
+  </ul>
 </div>
 

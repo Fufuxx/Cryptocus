@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'app';
 
   query: String = '';
+  tweets: any[];
 
   constructor(private http: HttpClient){
 
@@ -27,6 +28,7 @@ export class AppComponent {
 
   handleTweets(data){
     console.log(data);
+    this.tweets = data.tweets.statuses;
   }
 
 }

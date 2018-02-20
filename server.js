@@ -29,14 +29,15 @@ app.use(function(req, res, next){
 //app.use(require('./routes/dummy.js'));
 app.post('/tweets', function(req, res, next){
     var query = JSON.parse(req.body).query;
-    client.get('search/tweets', { q : query }, function(error, tweets, response) {
-        if(error){
-            console.log(error);
-            res.json({ error: true, data: error });
-        }
-        else{
-            res.json({ error: false, tweets: tweets });
-        }
+    client.get('search/tweets', { q : query, count : 100, result_type: 'recent' }, 
+        function(error, tweets, response) {
+            if(error){
+                console.log(error);
+                res.json({ error: true, data: error });
+            }
+            else{
+                res.json({ error: false, tweets: tweets });
+            }
     });
 
 });
