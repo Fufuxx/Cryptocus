@@ -13,7 +13,7 @@ export class AppComponent {
   tweets: any[];
 
   coins: String = '';
-  marketCapCoins: any[];
+  marketCapCoins: any[] = [];
   coinready: boolean = false;
 
   offset = 0;
