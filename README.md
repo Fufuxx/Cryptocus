@@ -1,26 +1,7 @@
-# Angular CLI & Node js Boilerplate
+# Cryptocus
 
-Get started on building apps on top of NodeJs and Angular CLI
+Small project build up around twitter and cryptocurrency
 
-More doc to follow - Boilerplate build up still in progress...
+#### Status
 
-#### Before you can run the app
-
-+ Create Database locally - Create q-boiler database on Postico
-
-+ Set Dependencies
-`npm install`
-
-+ Build up the dist folder
-`ng build`
-
-+ run migration from terminal on app root directory
-`knex migrate:latest`
-
-+ Run node Server
-`npm start`
-
-#### Add on
-
-+ Build for production
-`ng build --prod`
+In development...
