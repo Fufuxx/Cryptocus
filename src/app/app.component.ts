@@ -29,6 +29,12 @@ export class AppComponent {
   handleTweets(data){
     console.log(data);
     this.tweets = data.tweets.statuses;
+    //Remove Duplicates
+    this.tweets = this.tweets.filter((el, index, self) =>
+      index === self.findIndex((t) => (
+        t.text === el.text
+      ))
+    );
   }
 
 }
