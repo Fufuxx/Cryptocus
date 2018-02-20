@@ -27,15 +27,14 @@ app.use(function(req, res, next){
 
 //Handle Routes
 //app.use(require('./routes/dummy.js'));
-app.get('/tweets', function(req, res, next){
-
-    client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+app.post('/tweets', function(req, res, next){
+    var query = JSON.parse(req.body).query;
+    client.get('search/tweets', { q : query }, function(error, tweets, response) {
         if(error){
             console.log(error);
             res.json({ error: true, data: error });
         }
         else{
-            console.log(tweets);
             res.json({ error: false, tweets: tweets });
         }
     });
