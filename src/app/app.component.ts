@@ -47,6 +47,7 @@ export class AppComponent {
 
   handleTweets(data){
     console.log(data);
+    let self = this;
     this.tweets = data.tweets.statuses;
     //Remove Duplicates
     this.tweets = this.tweets.filter((el, index, self) =>
@@ -61,9 +62,10 @@ export class AppComponent {
       var i = e.text.search(/\$[a-zA-Z]{3}\s/);
       var j = e.text.search(/\$[a-zA-Z]{4}\s/);
 
+      //Text substring needs to be uppercased !!
       if(i > -1){ 
         if(tmp.filter(function(el){ return el ==  e.text.substring(i+1, i+4) }).length == 0 &&
-          this.symbols.indexOf(e.text.substring(i+1, i+4)) > -1){
+          self.symbols.indexOf(e.text.substring(i+1, i+4)) > -1){
           //Push e only so you can set the rest in the html and inject new property from marketcap
           tmp.push(e.text.substring(i+1, i+4)); 
         }
@@ -71,7 +73,7 @@ export class AppComponent {
       //Only first found - usually main topic subject of tweet
       else if(j > -1){ 
         if(tmp.filter(function(el){ return el ==  e.text.substring(j+1, j+4) }).length == 0 &&
-          this.symbols.indexOf(e.text.substring(i+1, i+4)) > -1){
+          self.symbols.indexOf(e.text.substring(i+1, i+4)) > -1){
 
           tmp.push(e.text.substring(j+1, j+5)); 
         }
