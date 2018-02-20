@@ -43,12 +43,10 @@ export class AppComponent {
     this.tweets.forEach(function(e){
       var i = e.text.search(/\$[a-zA-Z]{3}\s/);
       var j = e.text.search(/\$[a-zA-Z]{4}\s/);
-      console.log('===========');
-      console.log(e.text);
-      console.log('i -> '+i+', j -> '+j);
+
       if(i > -1){ tmp.push(e.text.substring(i+1, i+4)); }
-      if(j > -1){ 
-        console.log(e.text.substring(j+1, j+5));
+      //Only first found - usually main topic subject of tweet
+      else if(j > -1){ 
         tmp.push(e.text.substring(j+1, j+5)); 
       }
     });
