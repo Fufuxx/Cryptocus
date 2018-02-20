@@ -13,9 +13,25 @@ export class AppComponent {
   tweets: any[];
 
   coins: String = '';
+  marketCapCoins: any[];
+  coinready: boolean = false;
+
+  offset = 0;
 
   constructor(private http: HttpClient){
 
+  }
+
+  ngOnInit(){
+    this.getCoins();
+  }
+
+  getCoins(){
+    this.http.get('https://api.coinmarketcap.com/v1/ticker/?start='+this.offset)
+        .subscribe(
+          data => this.handleCoinMarketCap(data), 
+          error => console.log('Error',error)
+        );
   }
 
   getTweets(){
@@ -54,9 +70,23 @@ export class AppComponent {
           tmp.push(e.text.substring(j+1, j+5)); }
       }
     });
-
     this.coins = tmp.join(', ');
+  }
 
+  handleCoinMarketCap(data){
+    //Get 300 first coins listed
+    if(this.offset < 300){
+      data.forEach(function(e){
+        this.marketCapCoins.push(e);
+      });
+      this.offset = this.offset + 100;
+      this.getCoins();
+    }
+    else{ 
+      console.log('Coins set');
+      console.log(this.marketCapCoins);
+      this.coinready = true; 
+    }
   }
 
 }
