@@ -45,12 +45,12 @@ export class AppComponent {
       var j = e.text.search(/\$[a-zA-Z]{4}\s/);
 
       if(i > -1){ 
-        if(tmp.filter(function(e){ return e ==  e.text.substring(i+1, i+4) }).length == 0){
+        if(tmp.filter(function(el){ return el ==  e.text.substring(i+1, i+4) }).length == 0){
           tmp.push(e.text.substring(i+1, i+4)); }
       }
       //Only first found - usually main topic subject of tweet
       else if(j > -1){ 
-        if(tmp.filter(function(e){ return e ==  e.text.substring(j+1, j+4) }).length == 0){
+        if(tmp.filter(function(el){ return el ==  e.text.substring(j+1, j+4) }).length == 0){
           tmp.push(e.text.substring(j+1, j+5)); }
       }
     });
