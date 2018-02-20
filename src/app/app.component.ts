@@ -38,7 +38,7 @@ export class AppComponent {
       ))
     );
 
-    var coins = [];
+    var tmp = [];
 
     //Debug
     var debug = this.tweets[0];
@@ -48,13 +48,11 @@ export class AppComponent {
     console.log('Get the coin -> '+debug.text.substring(ind, ind+4));
 
     this.tweets.forEach(function(e){
-      var i = e.text.search(/[$][a-zA-Z]{3}\s$/);
-      if(i > -1){
-        coins.push(e.text.substring(i, i+4));
-      }
+      var i = e.text.search(/[$][a-zA-Z]{3}\s/);
+      if(i > -1){ tmp.push(e.text.substring(i, i+4)); }
     });
-
-    this.coins = coins.join(',');
+    console.log('Tmp', tmp);
+    this.coins = tmp.join(',');
   }
 
 }
