@@ -75,9 +75,10 @@ export class AppComponent {
 
   handleCoinMarketCap(data){
     //Get 300 first coins listed
+    let self = this;
     if(this.offset < 300){
       data.forEach(function(e){
-        this.marketCapCoins.push(e);
+        self.marketCapCoins.push(e);
       });
       this.offset = this.offset + 100;
       this.getCoins();
