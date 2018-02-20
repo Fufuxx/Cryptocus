@@ -39,6 +39,14 @@ export class AppComponent {
     );
 
     var coins = [];
+
+    //Debug
+    var debug = this.tweets[0];
+    console.log(debug.text);
+    var ind = debug.text.search(/[$][a-zA-Z]{3}\s$/);
+    console.log('Search - > '+ind);
+    console.log('Get the coin -> '+debug.text.substring(ind, ind+4));
+
     this.tweets.forEach(function(e){
       var i = e.text.search(/[$][a-zA-Z]{3}\s$/);
       if(i > -1){
