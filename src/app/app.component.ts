@@ -40,19 +40,13 @@ export class AppComponent {
 
     var tmp = [];
 
-    //Debug
-    var debug = this.tweets[0];
-    console.log(debug.text);
-    var ind = debug.text.search(/[$][a-zA-Z]{3}\s$/);
-    console.log('Search - > '+ind);
-    console.log('Get the coin -> '+debug.text.substring(ind, ind+4));
-
     this.tweets.forEach(function(e){
-      var i = e.text.search(/[$][a-zA-Z]{3}\s/);
+      var i = e.text.search(/[$][a-zA-Z]{3,4}\s/);
       if(i > -1){ tmp.push(e.text.substring(i, i+4)); }
     });
     console.log('Tmp', tmp);
     this.coins = tmp.join(',');
+    
   }
 
 }
