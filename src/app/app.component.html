@@ -5,8 +5,10 @@
   <hr/>
   <h1>Coin list of the moment (based on 100 last tweets for this search)</h1>
   <p>{{ coins }}</p>
+  <p *ngIf="!coins || coins.length == 0">No related coins</p>
   <hr/>
   <h1>Results :</h1>
+  <p *ngIf="!tweets || tweets.length == 0">No related tweets</p>
   <ul>
     <li *ngFor="let t of tweets">{{ t.text }} - (<a [attr.href]="'https://twitter.com/statuses/'+t.id_str" target="_blank">Link</a>)</li>
   </ul>
