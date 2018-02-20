@@ -12,6 +12,8 @@ export class AppComponent {
   query: String = '';
   tweets: any[];
 
+  coins: String = '';
+
   constructor(private http: HttpClient){
 
   }
@@ -35,6 +37,16 @@ export class AppComponent {
         t.text === el.text
       ))
     );
+
+    var coins = [];
+    this.tweets.forEach(function(e){
+      var i = e.text.search(/[$][a-zA-Z]{3}\s$/);
+      if(i > -1){
+        coins.push(e.text.substring(i, i+4));
+      }
+    });
+
+    this.coins = coins.join(',');
   }
 
 }

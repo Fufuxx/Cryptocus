@@ -3,6 +3,9 @@
   <input id="bigInput" type="text" [(ngModel)]="query" />
   <button id="bigButton" (click)="getTweets()">Get Tweets</button>
   <hr/>
+  <h1>Coin List</h1>
+  <p></p>
+  <hr/>
   <h1>Results :</h1>
   <ul>
     <li *ngFor="let t of tweets">{{ t.text }} - (<a [attr.href]="'https://twitter.com/statuses/'+t.id_str" target="_blank">Link</a>)</li>
