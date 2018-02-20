@@ -5,7 +5,7 @@
   <hr/>
   <h1>Results :</h1>
   <ul>
-    <li *ngFor="let t of tweets">{{ t.text }}</li>
+    <li *ngFor="let t of tweets">{{ t.text }} - (<a [attr.href]="'https://twitter.com/statuses/'+t.id_str" target="_blank">Link</a></li>
   </ul>
 </div>
 
