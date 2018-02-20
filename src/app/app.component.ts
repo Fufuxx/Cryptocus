@@ -41,12 +41,14 @@ export class AppComponent {
     var tmp = [];
 
     this.tweets.forEach(function(e){
-      var i = e.text.search(/[$][a-zA-Z]{3,4}\s/);
-      if(i > -1){ tmp.push(e.text.substring(i, i+4)); }
+      var i = e.text.search(/[$][a-zA-Z]{3}\s/);
+      var j = e.text.search(/[$][a-zA-Z]{4}\s/);
+      if(i > -1){ tmp.push(e.text.substring(i+1, i+4)); }
+      if(j > -1){ tmp.push(e.text.substring(i+1, i+5)); }
     });
-    console.log('Tmp', tmp);
-    this.coins = tmp.join(',');
-    
+
+    this.coins = tmp.join(', ');
+
   }
 
 }
